@@ -9,7 +9,7 @@ const navLinks = [
   { label: 'Contact', to: '/contact' },
 ];
 
-const WHATSAPP_URL = 'https://wa.me/923235511022?text=Hello%20SAMRAH%20PRIVE%2C%20I%20would%20like%20to%20connect%20about%20a%20property.';
+const WHATSAPP_URL = 'https://wa.me/923255511022?text=Hello%20SAMRAH%20PRIVE%2C%20I%20would%20like%20to%20connect%20about%20a%20property.';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,7 +21,7 @@ export default function Navbar() {
           <img src="/images/logo.svg" alt="SAMRAH PRIVE" className="h-9 w-9 rounded-lg shadow-sm" />
           <div className="flex flex-col">
             <span className="text-sm font-semibold tracking-tight text-slate-900">SAMRAH PRIVE</span>
-            <span className="text-xs text-slate-500">Luxury Homes</span>
+            <span className="text-xs text-slate-500">Luxury Homes & Real Estate</span>
           </div>
         </div>
 

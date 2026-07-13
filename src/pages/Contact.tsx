@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 
 const BUSINESS_EMAIL = 'hello@samrahprive.com';
-const WHATSAPP_LINK = 'https://wa.me/923235511022?text=Hello%20SAMRAH%20PRIVE%2C%20I%20would%20like%20to%20connect%20about%20a%20property.';
+const WHATSAPP_LINK = 'https://wa.me/923255511022?text=Hello%20SAMRAH%20PRIVE%2C%20I%20would%20like%20to%20connect%20about%20a%20property.';
 
 export default function Contact(){
   const [name, setName] = useState('');
@@ -36,7 +36,7 @@ export default function Contact(){
               </div>
               <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Phone</p>
-                <p className="mt-3 text-slate-300">03235511022</p>
+                <p className="mt-3 text-slate-300">03255511022</p>
               </div>
               <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Support</p>
@@ -92,7 +92,7 @@ export default function Contact(){
                 rel="noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-400"
               >
-                Chat on WhatsApp: 03235511022
+                Chat on WhatsApp: 03255511022
               </a>
               <p className="text-sm text-slate-400">When you click <strong>Send message</strong>, your email app will open with the message pre-filled for {BUSINESS_EMAIL}.</p>
               <p className="text-sm text-slate-400">Use the WhatsApp button for fast real-time chat with the same number.</p>
