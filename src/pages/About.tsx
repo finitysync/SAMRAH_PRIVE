@@ -13,8 +13,9 @@ export default function About(){
               <img src="/images/SAMRAHimg.png" alt="Samrah Prive Co-founder" className="h-full w-full object-cover object-center" />
             </div>
             <div className="text-center lg:text-left">
-              <p className="text-sm uppercase tracking-[0.35em] text-teal-400">Co-founder</p>
-              <h2 className="mt-3 text-3xl font-semibold text-white">Samrah</h2>
+              <p className="text-sm uppercase tracking-[0.35em] text-teal-400">CEO</p>
+              <h2 className="mt-3 text-3xl font-semibold text-white">Samrah Chaudhry</h2>
+              <p className="mt-3  font-semibold text-teal-400">Message from CEO</p>
               <p className="mt-4 text-slate-300 leading-8">Samrah is the visionary co-founder of SAMRAH PRIVE, combining deep luxury real estate knowledge with a sharp eye for premium opportunities in Lahore and Dubai. Her leadership ensures every client receives thoughtful guidance, tailored property matching, and a seamless journey from first viewing to closing.</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
