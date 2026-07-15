@@ -1,5 +1,10 @@
 # Changelog — SAMRAH PRIVE
 
+## [v1.0.2] - 2026-07-16
+
+### Added
+- Integrated Formspree into the Contact page to securely send form data without redirecting or using mailto
+
 ## [v1.0.1] - 2026-07-15
 
 ### Added

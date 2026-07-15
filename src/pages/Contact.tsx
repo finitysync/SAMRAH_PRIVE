@@ -8,14 +8,32 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const subject = encodeURIComponent("SAMRAH PRIVE enquiry from website");
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-    );
-    window.location.href = `mailto:${BUSINESS_EMAIL}?subject=${subject}&body=${body}`;
+    setStatus("submitting");
+    try {
+      const response = await fetch("https://formspree.io/f/xreneqyy", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+      
+      if (response.ok) {
+        setStatus("success");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
   };
 
   return (
@@ -84,6 +102,7 @@ export default function Contact() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
+                  name="name"
                   type="text"
                   placeholder="Your name"
                   className="mt-3 w-full rounded-3xl border border-white/10 bg-slate-950 px-4 py-4 text-white placeholder:text-slate-500 focus:border-white/30 focus:outline-none"
@@ -98,6 +117,7 @@ export default function Contact() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  name="email"
                   type="email"
                   placeholder="Email address"
                   className="mt-3 w-full rounded-3xl border border-white/10 bg-slate-950 px-4 py-4 text-white placeholder:text-slate-500 focus:border-white/30 focus:outline-none"
@@ -112,6 +132,7 @@ export default function Contact() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
+                  name="message"
                   rows={5}
                   placeholder="Tell us about your ideal property"
                   className="mt-3 w-full rounded-3xl border border-white/10 bg-slate-950 px-4 py-4 text-white placeholder:text-slate-500 focus:border-white/30 focus:outline-none"
@@ -119,10 +140,22 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center rounded-full px-6 py-4 text-sm font-semibold text-white btn-gradient"
+                disabled={status === "submitting"}
+                className="inline-flex w-full items-center justify-center rounded-full px-6 py-4 text-sm font-semibold text-white btn-gradient disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send message
+                {status === "submitting" ? "Sending..." : "Send message"}
               </button>
+
+              {status === "success" && (
+                <p className="text-sm text-emerald-400 text-center">
+                  Message sent successfully! We will get back to you soon.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-sm text-red-400 text-center">
+                  Failed to send message. Please try again.
+                </p>
+              )}
             </form>
 
             <div className="mt-6 flex flex-col gap-3">
@@ -135,8 +168,8 @@ export default function Contact() {
                 Chat on WhatsApp: 03255511022
               </a>
               <p className="text-sm text-slate-400">
-                When you click <strong>Send message</strong>, your email app
-                will open with the message pre-filled for {BUSINESS_EMAIL}.
+                When you click <strong>Send message</strong>, your message
+                will be sent securely to our team.
               </p>
               <p className="text-sm text-slate-400">
                 Use the WhatsApp button for fast real-time chat with the same
